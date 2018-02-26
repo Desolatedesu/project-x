@@ -9,7 +9,7 @@
 body {
   font-size: 18px;
   font-family: 'Fira Sans Extra Condensed', 'Arial', sans-serif;
-  background-image: url('../images/bg2.jpg');
+  background-image: url('../images/bg1.jpg');
   background-position: 50% 0;
   background-attachment: fixed;
   color: var(--white);
@@ -76,4 +76,12 @@ p {
 
 .header__item li a:hover {
   background: rgb(138, 13, 75);
+}
+
+img {
+  transition-duration: 0.7s;
+}
+
+img:hover {
+  transform: scale(1.1);
 }
