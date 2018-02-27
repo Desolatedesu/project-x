@@ -44,7 +44,7 @@ header {
   height: var(--header-height);
   background: var(--header-background);
   overflow: hidden;
-  box-shadow: 40px 0 30px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.5);
 }
 
 p {
@@ -100,7 +100,7 @@ footer {
   height: var(--footer-height);
   background: var(--header-background);
   overflow: hidden;
-  box-shadow: 0px 30px 30px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.5);
   transition-duration: 1s;
 }
 
