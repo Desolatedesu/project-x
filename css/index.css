@@ -4,12 +4,14 @@
 
   --header-background: #741441;
   --header-height: 70px;
+  --footer-height: 20px;
+  --footer-height-grow: 100px;
 }
 
 body {
   font-size: 18px;
   font-family: 'Fira Sans Extra Condensed', 'Arial', sans-serif;
-  background-image: url('../images/bg1.jpg');
+  background-image: url('../images/bg.png');
   background-position: 50% 0;
   background-attachment: fixed;
   color: var(--white);
@@ -23,7 +25,9 @@ body {
 .body-wrapper {
   margin-top: var(--header-height);
   background: var(--black);
-  border: 10px solid var(--black);
+  border-left: 20px solid var(--header-background);
+  border-right: 20px solid var(--header-background);
+  margin-bottom: var(--footer-height);
 }
 
 h1 {
@@ -79,9 +83,28 @@ p {
 }
 
 img {
+  transform: scale(0.9);
   transition-duration: 0.7s;
+
 }
 
 img:hover {
-  transform: scale(1.1);
+  transform: scale(1.0);
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: var(--footer-height);
+  background: var(--header-background);
+  overflow: hidden;
+  box-shadow: 0px 30px 30px 10px rgba(0, 0, 0, 0.5);
+  transition-duration: 1s;
+}
+
+footer:hover {
+  height: var(--footer-height-grow)
+}
+
