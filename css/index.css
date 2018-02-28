@@ -18,7 +18,7 @@ body {
   color: var(--white);
 }
 
-.wrapper {
+.header-wrapper {
   max-width: 950px;
   margin: 0 auto;
 }
@@ -79,7 +79,7 @@ p {
   text-decoration: none;
 }
 
-.header__item li a:hover {
+.header__item  li a:hover {
   background: rgb(138, 13, 75);
 }
 
@@ -111,7 +111,8 @@ footer:hover {
 
 .footer__item {
   display: inline-table;
-  height: var(--footer-button);
+  width: 100%;
+  height: var(--footer-height-grow);
 }
 
 .footer__menu {
@@ -129,4 +130,8 @@ vertical-align: middle;
   padding: var(--footer-height-grow) 10px;
   color: var(--white);
   text-decoration: none;
+}
+
+.footer__item li a:hover {
+  background: rgb(138, 13, 75);
 }
