@@ -5,7 +5,8 @@
   --header-background: #741441;
   --header-height: 70px;
   --footer-height: 20px;
-  --footer-height-grow: 100px;
+  --footer-height-grow: 80px;
+  --footer-button: 40px;
 }
 
 body {
@@ -108,3 +109,24 @@ footer:hover {
   height: var(--footer-height-grow)
 }
 
+.footer__item {
+  display: inline-table;
+  height: var(--footer-button);
+}
+
+.footer__menu {
+  margin: 0;
+  list-style-type: none;
+}
+
+.footer__menu li {
+display: table-cell;
+text-align: center;
+vertical-align: middle;
+}
+
+.footer__item li a {
+  padding: var(--footer-height-grow) 10px;
+  color: var(--white);
+  text-decoration: none;
+}
