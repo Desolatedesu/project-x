@@ -1,27 +1,30 @@
-#!/usr/bin/env python3.4
+#!D:/Programs/Python/python.exe
 
 import os, sys
 import cgi, cgitb
+from jinja import environment
+
 cgitb.enable()
 sys.stderr = sys.stdout
+
+template = environment.get_template('lab1.html')
 
 form = cgi.FieldStorage()
 list = []
 
-filepath = str(form["x1"].value)
-file = open(filepath,'r', encoding="utf-8")
+# filepath = str(form["x1"].value)
+# file = open('filepath','r', encoding="utf-8")
+file = open('./azaza','r', encoding="utf-8")
 
-print("Исходный текст:\n")
-print(f.read())
-print("_" * 100 + "\n")
+file_content = file.read()
 
-for word in file.read().split(' '):
-	if word[0].lower() == 'a' or word[0].lower() == 'e' or word[0].lower() == 'i' or word[0].lower() == 'u' or word[0].lower() == 'y' or word[0].lower() == 'o':
+for word in file_content.split():
+	if word[0].lower() in "eiuyo":
 		list.append(word)
 	else:
 		continue
 
-for right in list:
-	print(right)
-
 file.close()
+
+print('Content-type: text/html\n')
+print(template.render(file_content=file_content, list=list))

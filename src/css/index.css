@@ -132,3 +132,7 @@ vertical-align: middle;
 .footer__item li a:hover {
   background: rgb(138, 13, 75);
 }
+
+.left-side {
+  margin: 40px;
+}

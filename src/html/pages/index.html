@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <!-- <meta charset="UTF-8"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="keyword1, keyword2">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}{% endblock %} - Desu pages</title>
+  <link rel="shortcut icon" href="/images/1.png" type="image/png">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.0/normalize.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="header-wrapper">
+      <div class="header__item header__logo">
+        <a href="/">
+          <img class="logo" src="/images/logo2.png" alt="Go to the main page">
+        </a>
+      </div>
+
+      <ul class="header__item header__menu">
+        <li>
+          <a href="/">Пункт 1</a>
+        </li>
+        <li>
+          <a href="/">Пункт 2</a>
+        </li>
+        <li>
+          <a href="/">Пункт 3</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="header-wrapper body-wrapper">
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+      <div>
+        <div class="header-wrapper">
+          <ul class="footer__item footer__menu">
+            <li>
+              <a href="/">Лабораторная 1</a>
+            </li>
+            <li>
+              <a href="/">Лабораторная 2</a>
+            </li>
+            <li>
+              <a href="/">Лабораторная 3</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
