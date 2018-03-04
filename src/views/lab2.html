@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Lab 2
+{% endblock %}
+
+{% block content %}
+  {% if message %}
+    <div class="error">
+      {{ message }}
+    </div>
+  {% endif %}
+
+  <h1>Lab 2</h1>
+  <p>Enter only integer numbers.</p>
+  <form action="" method="post">
+    <h2>Number</h2>
+    <input type="text" name="x" placeholder="Example: 6">
+    <h2>Left boundary</h2>
+    <input type="text" name="y" placeholder="Example: 2">
+    <h2>Right boundary</h2>
+    <input type="text" name="z" placeholder="Example: 10">
+    <button class="submit">Send</button>
+  </form>
+
+  {% if result %}
+    <h1>Results</h1>
+    {{ result }}
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Lab 3
+{% endblock %}
+
+{% block content %}
+  {% if message %}
+    <div class="error">
+      {{ message }}
+    </div>
+  {% endif %}
+
+  <h1>Lab 3</h1>
+  <form action="" method="post">
+    <h2>String 1</h2>
+    <input type="text" name="x">
+    <h2>String 2</h2>
+    <input type="text" name="y">
+    <h2>String 3</h2>
+    <input type="text" name="z">
+    <button class="submit">Send</button>
+  </form>
+
+  {% if result %}
+    <h1>Results</h1>
+    {{ result }}
+  {% endif %}
+{% endblock %}

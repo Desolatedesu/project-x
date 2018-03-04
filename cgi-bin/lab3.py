@@ -1,28 +1,34 @@
-#!/usr/bin/env python3.4
+#!D:/Programs/Python/python.exe
 
 import os,sys
 import cgi, cgitb
+from jinja import environment
+
 cgitb.enable()
 sys.stderr = sys.stdout
 
-form = cgi.FieldStorage()
+print('Content-type: text/html\n')
 
+template = environment.get_template('lab3.html')
+
+form = cgi.FieldStorage()
+message = ''
+result = ''
 n = 0
 list = []
 
-a = str(form["x1"].value)
-b = str(form["x2"].value)
-c = str(form["x3"].value)
+if "x" in form and "y" in form and "z" in form:
+  list.append(str(form["x"].value))
+  list.append(str(form["y"].value))
+  list.append(str(form["z"].value))
 
-list.append(a)
-list.append(b)
-list.append(c)
+  for i, word in enumerate(list, start = 1):
+    for letter in word:
+      if letter.lower() in "aeouiyауеоюёяиэы":
+        n = n + 1
+    result += "Строка " + str(i) + ": " + str(n) + " гласных букв, "
+    n = 0
+else:
+  message = 'Введите данные'
 
-for i, word in enumerate(list, start = 1):
-	for letter in word:
-		if letter.lower() in "aeouiyауеоюёяиэы":
-			n++
-		else:
-			continue
-	print("Строка " + str(i) + ": " + str(n) + " гласных букв.")
-	n = 0
+print(template.render(message=message, result=result))

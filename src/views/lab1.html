@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Lab 1
+{% endblock %}
+
+{% block content %}
+  {% if message %}
+    <div class="error">
+      {{ message }}
+    </div>
+  {% endif %}
+
+  <h1>Lab 1</h1>
+  <form action="" method="post">
+    <h2>File name:</h2>
+    <input type="text" name="file" placeholder="file.txt">
+    <button class="submit">Send</button>
+  </form>
+
+  {% if file_content %}
+    <h1>Results</h1>
+    <h2>{{ filename }} - file contents:</h2>
+    {{ file_content }}
+
+    <h2>All words start with vowels:</h2>
+    {% for item in list -%}
+        {{ item }}<br>
+    {%- endfor %}
+  {% endif %}
+{% endblock %}

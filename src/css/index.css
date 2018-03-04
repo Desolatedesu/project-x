@@ -2,36 +2,40 @@
   --white: #ffffff;
   --black: #1c1c1c;
 
+  --header-box-shadow-radius: 30px;
   --header-background: #741441;
+  --header-background-hover: rgb(138, 13, 75);
   --header-height: 70px;
+
   --footer-height: 20px;
   --footer-height-grow: 80px;
+
+  --transition-duration: 100ms;
 }
 
 body {
   font-size: 18px;
   font-family: 'Fira Sans Extra Condensed', 'Arial', sans-serif;
-  background-image: url('../images/bg.png');
+  background-image: url('../img/bg.png');
   background-position: 50% 0;
   background-attachment: fixed;
   color: var(--white);
 }
 
-.header-wrapper {
+.wrapper {
   max-width: 950px;
   margin: 0 auto;
 }
 
 .body-wrapper {
   margin-top: var(--header-height);
-  background: var(--black);
   margin-bottom: var(--footer-height);
+  padding: var(--header-box-shadow-radius) 15px;
+  background: var(--black);
 }
 
-h1 {
-  margin: 1px 0;
-  text-align: center;
-  padding-bottom: 10px;
+h1, h2 {
+  margin: 10px 0;
 }
 
 header {
@@ -42,11 +46,7 @@ header {
   height: var(--header-height);
   background: var(--header-background);
   overflow: hidden;
-  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.5);
-}
-
-p {
-  margin: 0 30px;
+  box-shadow: 0px 0px var(--header-box-shadow-radius) 10px rgba(0, 0, 0, 0.5);
 }
 
 .header__item {
@@ -74,16 +74,16 @@ p {
   padding: calc(var(--header-height) / 2) 10px;
   color: var(--white);
   text-decoration: none;
+  transition-duration: var(--transition-duration);
 }
 
-.header__item  li a:hover {
-  background: rgb(138, 13, 75);
+.header__item li a:hover {
+  background: var(--header-background-hover);
 }
 
 img {
   transform: scale(0.9);
   transition-duration: 0.7s;
-
 }
 
 img:hover {
@@ -135,4 +135,43 @@ vertical-align: middle;
 
 .left-side {
   margin: 40px;
+}
+
+.error {
+  padding: 10px;
+  border: 1px solid var(--header-background);
+  border-radius: 5px;
+}
+
+input, button {
+  padding: 5px 10px;
+  margin: 3px 0;
+}
+
+input {
+  width: 90%;
+  color: var(--white);
+  background: var(--black);
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 3px solid var(--header-background);
+  border-left: 0;
+}
+
+input:focus {
+  border-bottom-color: var(--header-background-hover);
+}
+
+.submit {
+  display: block;
+  border-radius: 5px;
+  color: var(--white);
+  background: var(--header-background);
+  border: 0;
+  cursor: pointer;
+  transition-duration: var(--transition-duration);
+}
+
+.submit:hover {
+  background: var(--header-background-hover);
 }
