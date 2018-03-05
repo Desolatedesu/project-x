@@ -12,7 +12,7 @@ with open('../public_html/header.html', mode='r', encoding='utf-8') as file_read
   for line in file_read:
     print(line)
 
-with open('../public_html/about.html', mode='r', encoding='utf-8') as file_read:
+with open('../public_html/index.html', mode='r', encoding='utf-8') as file_read:
   for line in file_read:
     print(line)
 
