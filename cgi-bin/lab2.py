@@ -1,19 +1,18 @@
-#!D:/Programs/Python/python.exe
+#!/usr/bin/env python3.4
 
 import os,sys
 import cgi, cgitb
-from jinja import environment
 
 cgitb.enable()
 sys.stderr = sys.stdout
 
 print('Content-type: text/html\n')
 
-template = environment.get_template('lab2.html')
+with open('../public_html/header.html', mode='r') as file_read:
+  for line in file_read:
+    print(line)
 
 form = cgi.FieldStorage()
-message = ''
-result = ''
 
 if "x" in form and "y" in form and "z" in form:
   x = int(form["x"].value)
@@ -22,11 +21,18 @@ if "x" in form and "y" in form and "z" in form:
 
   rang = range(y, z)
 
+  print('<h2>Results:</h2>')
   if x in rang:
-    result = "Число {} принадлежит промежутку [{};{}]".format(x,y,z)
+    print("<p>Число {} принадлежит промежутку [{};{}]</p>".format(x,y,z))
   else:
-    result = "Число {} не принадлежит промежутку [{};{}]".format(x,y,z)
+    print("<p>Число {} не принадлежит промежутку [{};{}]</p>".format(x,y,z))
 else:
-  message = 'Введите данные'
+  print('<div class="error">Введите данные</div>')
 
-print(template.render(message=message, result=result))
+with open('../public_html/lab2.html', mode='r') as file_read:
+  for line in file_read:
+    print(line)
+
+with open('../public_html/footer.html', mode='r') as file_read:
+  for line in file_read:
+    print(line)

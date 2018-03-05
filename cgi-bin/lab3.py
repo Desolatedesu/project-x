@@ -1,19 +1,20 @@
-#!D:/Programs/Python/python.exe
+#!/usr/bin/env python3.4
 
 import os,sys
 import cgi, cgitb
-from jinja import environment
 
 cgitb.enable()
 sys.stderr = sys.stdout
 
 print('Content-type: text/html\n')
 
-template = environment.get_template('lab3.html')
+with open('../public_html/header.html', mode='r') as file_read:
+  for line in file_read:
+    print(line)
+
+print('<h1>Lab 3</h1>')
 
 form = cgi.FieldStorage()
-message = ''
-result = ''
 n = 0
 list = []
 
@@ -22,13 +23,21 @@ if "x" in form and "y" in form and "z" in form:
   list.append(str(form["y"].value))
   list.append(str(form["z"].value))
 
+  print("<h2>Results</h2>")
+
   for i, word in enumerate(list, start = 1):
     for letter in word:
       if letter.lower() in "aeouiyауеоюёяиэы":
         n = n + 1
-    result += "Строка " + str(i) + ": " + str(n) + " гласных букв, "
+    print("<p>Строка ", str(i), ": ", str(n), " гласных букв</p>")
     n = 0
 else:
-  message = 'Введите данные'
+  print('<div class="error">Введите данные</div>')
 
-print(template.render(message=message, result=result))
+with open('../public_html/lab3.html', mode='r') as file_read:
+  for line in file_read:
+    print(line)
+
+with open('../public_html/footer.html', mode='r') as file_read:
+  for line in file_read:
+    print(line)

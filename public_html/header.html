@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <!-- <meta charset="UTF-8"> -->
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="keyword1, keyword2">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{% block title %}{% endblock %} - Desu pages</title>
-  <link rel="shortcut icon" href="/images/1.png" type="image/png">
+  <title>Desu pages</title>
+  <link rel="shortcut icon" href="/img/1.png" type="image/png">
   <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.0/normalize.css">
   <link rel="stylesheet" href="/css/index.css">
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
@@ -17,7 +16,7 @@
     <div class="wrapper">
       <div class="header__item header__logo">
         <a href="/cgi-bin/main.py">
-          <img class="logo" src="/images/logo2.png" alt="Go to the main page">
+          <img class="logo" src="/img/logo2.png" alt="Go to the main page">
         </a>
       </div>
 
@@ -31,24 +30,3 @@
 
   <main>
     <div class="wrapper body-wrapper">
-      {% block content %}{% endblock %}
-    </div>
-  </main>
-
-  <footer>
-    <div class="wrapper">
-      <ul class="footer__item footer__menu">
-        <li>
-          <a href="/cgi-bin/lab1.py">Лабораторная 1</a>
-        </li>
-        <li>
-          <a href="/cgi-bin/lab2.py">Лабораторная 2</a>
-        </li>
-        <li>
-          <a href="/cgi-bin/lab3.py">Лабораторная 3</a>
-        </li>
-      </ul>
-    </div>
-  </footer>
-</body>
-</html>

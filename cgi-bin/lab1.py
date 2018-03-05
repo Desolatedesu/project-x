@@ -1,17 +1,17 @@
-#!D:/Programs/Python/python.exe
+#!/usr/bin/env python3.4
 
-import os, sys
+import os,sys
 import cgi, cgitb
-from jinja import environment
 
 cgitb.enable()
 sys.stderr = sys.stdout
 
 print('Content-type: text/html\n')
 
-template = environment.get_template('lab1.html')
+with open('../public_html/header.html', mode='r') as file_read:
+  for line in file_read:
+    print(line)
 
-message = ''
 filepath = ''
 file_content = ''
 list = []
@@ -25,16 +25,26 @@ if "file" in form:
 
     file_content = file.read()
 
+    print('<h2>File contents:</h2><p>{}</p>'.format(file_content))
+
     for word in file_content.split():
       if word[0].lower() in "eiuyo":
         list.append(word)
       else:
         continue
 
+    print('<h2>Words with vowels:</h2><p>', list, '</p>');
+
     file.close()
   except FileNotFoundError:
-    message = 'File doesn\'t exist'
+    print('<div class="error">File doesn\'t exist</div>')
 else:
-  message = 'Enter a filename'
+  print('<div class="error">Enter a filename</div>')
 
-print(template.render(message=message, filename=filepath, file_content=file_content, list=list))
+with open('../public_html/lab1.html', mode='r') as file_read:
+  for line in file_read:
+    print(line)
+
+with open('../public_html/footer.html', mode='r') as file_read:
+  for line in file_read:
+    print(line)
