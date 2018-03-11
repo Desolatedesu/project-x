@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.4
 
-import os,sys
+import os, sys
 import cgi, cgitb
 
 cgitb.enable()
