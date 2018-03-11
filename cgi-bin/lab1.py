@@ -6,45 +6,36 @@ import cgi, cgitb
 cgitb.enable()
 sys.stderr = sys.stdout
 
-print('Content-type: text/html;charset=windows-1251\n')
+def lab(form):
 
-with open('../public_html/header.html', mode='r', encoding='utf-8') as file_read:
-  for line in file_read:
-    print(line)
+	with open('../public_html/lab1.html', mode='r', encoding='utf-8') as file_read:
+		for line in file_read:
+			print(line)
 
-filepath = ''
-file_content = ''
-list = []
-form = cgi.FieldStorage()
+	filepath = ''
+	file_content = ''
+	list = []
 
-if "file" in form:
-  filepath = str(form["file"].value)
+	if "file" in form:
+		filepath = str(form["file"].value)
 
-  try:
-    file = open(filepath,'r', encoding="utf-8")
+		try:
+			file = open(filepath,'r', encoding="utf-8")
 
-    file_content = file.read()
+			file_content = file.read()
 
-    print('<h2>File contents:</h2><p>{}</p>'.format(file_content))
+			print('<h2>File contents:</h2><p>{}</p>'.format(file_content))
 
-    for word in file_content.split():
-      if word[0].lower() in "eiuyo":
-        list.append(word)
-      else:
-        continue
+			for word in file_content.split():
+				if word[0].lower() in "eiuyoaаоуюиыэеёя":
+					list.append(word)
+				else:
+					continue
 
-    print('<h2>Words with vowels:</h2><p>', list, '</p>');
+			print('<h2>Words with vowels:</h2><p>', list, '</p>');
 
-    file.close()
-  except FileNotFoundError:
-    print('<div class="error">File doesn\'t exist</div>')
-else:
-  print('<div class="error">Enter a filename</div>')
-
-with open('../public_html/lab1.html', mode='r', encoding='utf-8') as file_read:
-  for line in file_read:
-    print(line)
-
-with open('../public_html/footer.html', mode='r', encoding='utf-8') as file_read:
-  for line in file_read:
-    print(line)
+			file.close()
+		except FileNotFoundError:
+			print('<div class="error">File doesn\'t exist</div>')
+	else:
+		print('<div class="error">Enter a filename</div>')
