@@ -1,33 +1,35 @@
 body {
   font-size: 20px;
-  font-family: 'Arial', sans-serif;
+	font-family: 'Arial', sans-serif;
+	background-image: url(/img/bg.jpg);
+	color: #ffffff;
 }
 
 main {
   max-width: 1000px;
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 header {
   margin-top: 10px;
   padding: 10px 0;
-  border-bottom: 5px solid green;
+  border-bottom: 5px solid #383838;
 }
 
 .main {
-  color: green;
+  color: #383838;
   text-decoration: none;
   font-size: 24px;
   transition-duration: 100ms;
 }
 
 .main:hover {
-  background: green;
+  background: #383838;
   color: #ffffff;
 }
 
 a {
-  color: green;
+  color: #383838;
   text-decoration: underline;
 }
 
@@ -43,7 +45,7 @@ input {
 input, button {
   margin: 5px 0;
   padding: 10px;
-  border: 1px solid green;
+  border: 1px solid #383838;
   border-radius: 4px;
   background: #ffffff;
   font-size: 20px;
@@ -55,7 +57,20 @@ button {
 }
 
 button:hover {
-  background: green;
+  background: #383838;
   color: #ffffff
 }
 
+.contacts {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+	background: #008000;
+}
+
+.copy {
+	text-align: center;
+	color: white;
+}

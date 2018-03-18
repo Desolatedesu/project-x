@@ -70,7 +70,7 @@ if id == 0:
 	for result in items:
 		print('''
 			<li><a href="/cgi-bin/index.py?id={}">{}</a></li>
-		'''.format(result[0], result[2]), sep = '', end = '')
+		'''.format(result[0], result[1]), sep = '', end = '')
 
 	print('</ul>')
 
@@ -88,24 +88,10 @@ elif id == 2:
 	lab2.lab()
 elif id == 3:
 	lab3.lab(form)
-else:
-	for i in pageList:
-		if (id == i):
-			cur.execute("SELECT `content` FROM `pages`  WHERE `id` = {};".format(id))
-			db_one = cur.fetchone()
-			content = db_one[0]
-			print(content, end = '')
 
 print('''
 </div>
 </main>
-''')
-
-with open('../public_html/footer.html', mode='r', encoding='utf-8') as file_read:
-	for line in file_read:
-		print(line)
-
-print ('''
 </body>
 </html>
 ''')
