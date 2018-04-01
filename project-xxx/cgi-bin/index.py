@@ -32,6 +32,7 @@ except:
 cur = db.cursor()
 
 cur.execute("SELECT `title`, `keywords`, `content` FROM `pages` WHERE `id` = {};".format(id))
+
 item = cur.fetchone()
 
 title = str(item[0])
